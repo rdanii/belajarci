@@ -1,16 +1,21 @@
-
 <body>
-    <table border="1">
-        <thead>
+  <div class="container" style="margin-top: 50px;">
+    <a class="btn btn-info" href="<?php echo base_url('stok/addStok'); ?>">Tambah Stok</a>
+    <br>
+    <br><br>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+          <thead>
             <tr>
-                <th>No</th>
-                <th>Nama Barang</th>
-                <th>Jumlah</th>
-                <th>Merk</th>
-                <th>Jenis</th>
+              <th>No</th>
+              <th>Nama Barang</th>
+              <th>Jumlah</th>
+              <th>Merk</th>
+              <th>Jenis</th>
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <?php
             $no = 0;
             foreach ($tampil_stok->result() as $row) {
