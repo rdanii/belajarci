@@ -9,12 +9,12 @@ class User_model extends CI_Model
         return $result;
     }
     
-    function addUser($username, $nama, $email, $password){
+    function addUser($user, $nama, $email, $password){
         $data = array(
-            'username' => $username,
+            'username' => $user,
             'nama' => $nama,
             'email' => $email,
-            'password' => $password
+            'password' => sha1($password)
         );
         $this->db->insert('tbl_user', $data);
     }

@@ -18,7 +18,8 @@ class User extends CI_Controller
     public function index()
     {
         $data['user'] = $this->user_model->getUser();
-        $this->load->view('user_view', $data);
+        $data['content'] = 'user_view';
+        $this->load->view('set_view', $data);
     }
 
     function addUser()
@@ -32,7 +33,11 @@ class User extends CI_Controller
         $username = $this->input->post('username');
         $email = $this->input->post('email');
         $password = $this->input->post('password');
+
+        
+
         $this->user_model->addUser($username, $nama, $email, $password);
+
         redirect('user');
     }
   }
