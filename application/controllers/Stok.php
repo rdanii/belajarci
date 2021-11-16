@@ -19,4 +19,4 @@ class Stok extends CI_Controller
     }
 }
 
-/* End of file Barang.php */
+/* End of file Stok.php */
