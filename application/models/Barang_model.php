@@ -11,4 +11,3 @@ class Barang_model extends CI_Model {
 
 }
 
-/* End of file ModelName.php */
