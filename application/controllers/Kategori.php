@@ -14,8 +14,20 @@ class Kategori extends CI_Controller
 
     public function index()
     {
-        $data['tampil_kategori'] = $this->kategori_model->tampilkan_kategori();
+        $data['kategori'] = $this->kategori_model->getKategori();
         $this->load->view('kategori_view', $data);
+    }
+
+    function addKategori()
+    {
+        $this->load->view('add_kategori');
+    }
+
+    function create()
+    {
+        $kategori = $this->input->post('kategori');
+        $this->kategori_model->addKategori($kategori);
+        redirect('kategori');
     }
 }
 

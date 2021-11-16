@@ -2,33 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tampilkan Kategori</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Kategori</title>
+  <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
 </head>
 
 <body>
-    <table border="1">
-        <thead>
+  <div class="container" style="margin-top: 50px;">
+    <a class="btn btn-info" href="<?php echo base_url('kategori/addkategori'); ?>">Tambah Kategori</a>
+    <br>
+    <br><br>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-bordered table-hover">
+          <thead>
             <tr>
-                <th>No</th>
-                <th>Kategori</th>
+              <th>No</th>
+              <th>Kategori</th>
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <?php
-            $no = 0;
-            foreach ($tampil_kategori->result() as $row) {
-                $no++; ?>
-                <tr>
-                    <td><?= $no ?></td>
-                    <td><?= $row->kategori ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-
+            $no = 1;
+            foreach ($kategori->result() as $row) {
+            ?>
+              <tr>
+                <td><?php echo $no++ ?></td>
+                <td><?php echo $row->kategori ?></td>
+              </tr>
+            <?php }
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+  <script src="<?php echo base_url("assets/js/jquery.min.js"); ?>"></script>
 </body>
 
 </html>
