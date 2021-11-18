@@ -40,7 +40,7 @@
                 <td><?php echo $row->kategori ?></td>
                 <td><?php echo $row->jumlah_barang ?></td>
                 <td><?php echo $row->merk ?></td>
-                <td><a class="btn btn-warning" href="<?php echo base_url('barang/ubahBarang/'.$row->id); ?>">Ubah Barang</a></td>
+                <td><a class="btn btn-warning" href="<?php echo base_url('barang/ubahBarang/' . $row->id); ?>">Ubah Barang</a></td>
               </tr>
             <?php }
             ?>

@@ -26,7 +26,8 @@ class Barang extends CI_Controller
     $this->load->view('add_barang');
   }
 
-  function ubahBarang(){
+  function ubahBarang()
+  {
     $id = $this->uri->segment(3);
     $where = array('id' => $id);
     $table = 'tbl_barang';
@@ -63,10 +64,10 @@ class Barang extends CI_Controller
     $merk = $this->input->post('merk');
 
     $data = array(
-      'nama' => $nama,
+      'nama_barang' => $nama,
       'harga' => $harga,
       'kategori' => $kategori,
-      'jumlah'  => $jumlah,
+      'jumlah_barang'  => $jumlah,
       'merk'  => $merk
     );
 

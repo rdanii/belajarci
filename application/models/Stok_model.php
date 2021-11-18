@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Stok_model extends CI_Model
 {
-    function getStok()
+    function getStokId()
     {
         $result = $this->db->get('tbl_stok');
         return $result;
@@ -19,6 +19,12 @@ class Stok_model extends CI_Model
             'jenis' => $jenis
         );
         $this->db->insert('tbl_stok', $data);
+    }
+
+    function update_data($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update('tbl_stok', $data);
     }
 }
 

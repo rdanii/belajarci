@@ -12,6 +12,7 @@
 <body>
   <?php
   foreach ($barang->result() as $row) {
+    $id = $row->id;
     $nama = $row->nama_barang;
     $harga = $row->harga;
     $kategori = $row->kategori;
@@ -23,28 +24,29 @@
   <div class="container">
     <h1>Form Ubah Barang</h1>
     <div class="col-md-12">
-      <form action="<?php echo base_url('barang/update_barang'); ?>" method="POST">
+      <form action="<?php echo base_url('barang/update'); ?>" method="POST">
         <div class="form-group">
+          <input type="hidden" name="id" value="<?= $id ?>">
           <label>Nama</label>
-          <input type="text" class="form-control" name="nama_barang">
+          <input type="text" class="form-control" name="nama_barang" value="<?= $nama ?>">
         </div>
         <div class="form-group">
           <label>Harga</label>
-          <input type="text" class="form-control" name="harga">
+          <input type="text" class="form-control" name="harga" value="<?= $harga ?>">
         </div>
-        <div class="form-group">
+        <div class=" form-group">
           <label>Kategori</label>
-          <input type="text" class="form-control" name="kategori">
+          <input type="text" class="form-control" name="kategori" value="<?= $kategori ?>">
         </div>
-        <div class="form-group">
+        <div class=" form-group">
           <label>Jumlah</label>
-          <input type="text" class="form-control" name="jumlah_barang">
+          <input type="text" class="form-control" name="jumlah_barang" value="<?= $jmlBarang ?>">
         </div>
-        <div class="form-group">
+        <div class=" form-group">
           <label>Merk</label>
-          <input type="text" class="form-control" name="merk">
+          <input type="text" class="form-control" name="merk" value="<?= $merk ?>">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type=" submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>

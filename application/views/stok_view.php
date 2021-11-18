@@ -13,6 +13,7 @@
               <th>Jumlah</th>
               <th>Merk</th>
               <th>Jenis</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +27,7 @@
                 <td><?= $row->jumlah_barang ?></td>
                 <td><?= $row->merk ?></td>
                 <td><?= $row->jenis ?></td>
+                <td><a class="btn btn-warning" href="<?php echo base_url('stok/ubahStok/' . $row->id); ?>">Ubah Stok</a></td>
               </tr>
             <?php } ?>
           </tbody>
