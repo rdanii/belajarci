@@ -11,6 +11,7 @@
 <body>
   <div class="container" style="margin-top: 50px;">
     <a class="btn btn-info" href="<?php echo base_url('barang/addBarang'); ?>">Tambah Barang</a>
+
     <br>
     <br><br>
     <div class="row">
@@ -24,6 +25,7 @@
               <th>Kategori</th>
               <th>Jumlah</th>
               <th>Merk</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -38,6 +40,7 @@
                 <td><?php echo $row->kategori ?></td>
                 <td><?php echo $row->jumlah_barang ?></td>
                 <td><?php echo $row->merk ?></td>
+                <td><a class="btn btn-warning" href="<?php echo base_url('barang/ubahBarang'); ?>">Ubah Barang</a></td>
               </tr>
             <?php }
             ?>

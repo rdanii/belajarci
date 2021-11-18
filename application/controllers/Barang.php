@@ -26,9 +26,12 @@ class Barang extends CI_Controller
     $this->load->view('add_barang');
   }
 
-  function ubahBarang($id){
-    $data['barang'] = $this->barang_model->getBarangId($id);
-    $this->load->view('update_barang', $data);
+  function ubahBarang(){
+
+    // $where = array('id' => $id);
+    // $table = 'tbl_barang';
+    // $data['barang'] = $this->barang_model->getBarangId($table, $where);
+    $this->load->view('update_barang');
   }
 
   function create()
@@ -38,7 +41,15 @@ class Barang extends CI_Controller
     $kategori = $this->input->post('kategori');
     $jumlah = $this->input->post('jumlah_barang');
     $merk = $this->input->post('merk');
-    $this->barang_model->addBarang($nama, $harga, $kategori, $jumlah, $merk);
+    $data = array(
+      'nama_barang' => $nama,
+      'harga' => $harga,
+      'kategori' => $kategori,
+      'jumlah_barang' => $jumlah,
+      'merk' => $merk
+    );
+    $table = 'tbl_barang';
+    $this->barang_model->insertData($table, $data);
     redirect('barang');
   }
 

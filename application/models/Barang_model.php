@@ -9,23 +9,21 @@ class Barang_model extends CI_Model
     $result = $this->db->get('tbl_barang');
     return $result;
   }
-  function getBarangId($id)
+  function getBarangId($table, $where)
   {
-    $result = $this->db->get_where('tbl_barang',array('id' => $id));
+    $result = $this->db->get_where($table,$where);
     return $result;
   }
 
 
-  function addBarang($nama, $harga, $kategori, $jumlah, $merk)
+  function addBarang($data)
   {
-    $data = array(
-      'nama_barang' => $nama,
-      'harga' => $harga,
-      'kategori' => $kategori,
-      'jumlah_barang' => $jumlah,
-      'merk' => $merk
-    );
     $this->db->insert('tbl_barang', $data);
+  }
+
+  function insertData($table, $data)
+  {
+    $this->db->insert($table, $data);
   }
 
 
