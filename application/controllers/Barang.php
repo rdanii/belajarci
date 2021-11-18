@@ -27,11 +27,11 @@ class Barang extends CI_Controller
   }
 
   function ubahBarang(){
-
-    // $where = array('id' => $id);
-    // $table = 'tbl_barang';
-    // $data['barang'] = $this->barang_model->getBarangId($table, $where);
-    $this->load->view('update_barang');
+    $id = $this->uri->segment(3);
+    $where = array('id' => $id);
+    $table = 'tbl_barang';
+    $data['barang'] = $this->barang_model->getBarangId($table, $where);
+    $this->load->view('update_barang', $data);
   }
 
   function create()
