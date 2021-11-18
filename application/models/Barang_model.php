@@ -9,6 +9,12 @@ class Barang_model extends CI_Model
     $result = $this->db->get('tbl_barang');
     return $result;
   }
+  function getBarangId($id)
+  {
+    $result = $this->db->get_where('tbl_barang',array('id' => $id));
+    return $result;
+  }
+
 
   function addBarang($nama, $harga, $kategori, $jumlah, $merk)
   {
@@ -20,6 +26,13 @@ class Barang_model extends CI_Model
       'merk' => $merk
     );
     $this->db->insert('tbl_barang', $data);
+  }
+
+
+  function update_data($where, $data)
+  {
+    $this->db->where($where);
+    $this->db->update('tbl_barang', $data);
   }
 }
 
