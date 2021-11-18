@@ -1,6 +1,6 @@
 <body>
   <div class="container" style="margin-top: 50px;">
-    <a class="btn btn-info" href="<?php echo base_url('stok/addStok'); ?>">Tambah Stok</a>
+    <a class="btn btn-info" href="<?php echo base_url('stok/addstok'); ?>">Tambah Stok</a>
     <br>
     <br><br>
     <div class="row">
@@ -19,14 +19,14 @@
             <?php
             $no = 0;
             foreach ($tampil_stok->result() as $row) {
-                $no++; ?>
-                <tr>
-                    <td><?= $no ?></td>
-                    <td><?= $row->nama_barang ?></td>
-                    <td><?= $row->jumlah_barang ?></td>
-                    <td><?= $row->merk ?></td>
-                    <td><?= $row->jenis ?></td>
-                </tr>
+              $no++; ?>
+              <tr>
+                <td><?= $no ?></td>
+                <td><?= $row->nama_barang ?></td>
+                <td><?= $row->jumlah_barang ?></td>
+                <td><?= $row->merk ?></td>
+                <td><?= $row->jenis ?></td>
+              </tr>
             <?php } ?>
-        </tbody>
-    </table>
+          </tbody>
+        </table>

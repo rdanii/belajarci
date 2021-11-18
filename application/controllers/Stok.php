@@ -17,8 +17,8 @@ class Stok extends CI_Controller
 
     public function index()
     {
-        $data['tampil_stok'] = $this->stok_model->tampilkan_stok();
-        $data['content']= 'stok_view';
+        $data['tampil_stok'] = $this->stok_model->getStok();
+        $data['content'] = 'stok_view';
         $this->load->view('set_view', $data);
     }
 

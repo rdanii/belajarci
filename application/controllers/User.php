@@ -34,10 +34,10 @@ class User extends CI_Controller
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
-        
+
 
         $this->user_model->addUser($username, $nama, $email, $password);
 
         redirect('user');
     }
-  }
+}
