@@ -4,9 +4,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Stok_model extends CI_Model
 {
-    function getStokId()
+    function getStok()
     {
         $result = $this->db->get('tbl_stok');
+        return $result;
+    }
+
+    function getStokId($table, $where)
+    {
+        $result = $this->db->get_where($table, $where);
         return $result;
     }
 
