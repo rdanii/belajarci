@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halaman Kategori</title>
-  <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
-</head>
-
 <body>
   <div class="container" style="margin-top: 50px;">
     <a class="btn btn-info" href="<?php echo base_url('kategori/addkategori'); ?>">Tambah Kategori</a>
@@ -20,6 +10,7 @@
             <tr>
               <th>No</th>
               <th>Kategori</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -30,6 +21,7 @@
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $row->kategori ?></td>
+                <td><a class="btn btn-warning" href="<?= base_url('kategori/ubahKategori/' . $row->id) ?>">Ubah Kategori</a></td>
               </tr>
             <?php }
             ?>
@@ -38,8 +30,3 @@
       </div>
     </div>
   </div>
-  <script src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
-  <script src="<?php echo base_url("assets/js/jquery.min.js"); ?>"></script>
-</body>
-
-</html>

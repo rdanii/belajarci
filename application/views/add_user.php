@@ -19,12 +19,12 @@
           <input type="text" class="form-control" name="username">
         </div>
         <div class="form-group">
-          <label>Nama Pengguna</label>
+          <label>Nama</label>
           <input type="text" class="form-control" name="nama">
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="text" class="form-control" name="email">
+          <input type="email" class="form-control" name="email">
         </div>
         <div class="form-group">
           <label>Password</label>

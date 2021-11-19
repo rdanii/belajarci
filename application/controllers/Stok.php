@@ -8,7 +8,7 @@ class Stok extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('stok_model');
+        $this->load->model('general_model');
         // if (!$this->session->stokdata('auth')) {
         //     $this->session->set_flashdata('messageAkses', 'Anda tidak berhak mengakses halaman stok');
         //     redirect('auth');
@@ -17,7 +17,9 @@ class Stok extends CI_Controller
 
     public function index()
     {
-        $data['tampil_stok'] = $this->stok_model->getStok();
+        $table = 'tbl_stok';
+        $data['judul'] = 'Halaman Stok';
+        $data['stok'] = $this->general_model->getData($table);
         $data['content'] = 'stok_view';
         $this->load->view('set_view', $data);
     }
@@ -32,7 +34,7 @@ class Stok extends CI_Controller
         $id = $this->uri->segment(3);
         $where = array('id' => $id);
         $table = 'tbl_stok';
-        $data['stok'] = $this->stok_model->getStokId($table, $where);
+        $data['stok'] = $this->general_model->getDataById($table, $where);
         $this->load->view('update_stok', $data);
     }
 
@@ -42,7 +44,14 @@ class Stok extends CI_Controller
         $jumlah = $this->input->post('jumlah_barang');
         $merk = $this->input->post('merk');
         $jenis = $this->input->post('jenis');
-        $this->stok_model->addstok($nama, $jumlah, $merk, $jenis);
+        $data = [
+            'nama_barang' => $nama,
+            'jumlah_barang' => $jumlah,
+            'merk' => $merk,
+            'jenis' => $jenis
+        ];
+        $table = 'tbl_stok';
+        $this->general_model->insertData($table, $data);
         redirect('stok');
     }
 
@@ -64,8 +73,8 @@ class Stok extends CI_Controller
         $where = array(
             'id' => $id
         );
-
-        $this->stok_model->update_data($where, $data);
+        $table = 'tbl_stok';
+        $this->general_model->update_data($table, $where, $data);
         redirect('stok');
     }
 }

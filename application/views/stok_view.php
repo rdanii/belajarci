@@ -19,7 +19,7 @@
           <tbody>
             <?php
             $no = 0;
-            foreach ($tampil_stok->result() as $row) {
+            foreach ($stok->result() as $row) {
               $no++; ?>
               <tr>
                 <td><?= $no ?></td>

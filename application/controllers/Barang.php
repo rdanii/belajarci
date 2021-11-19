@@ -8,7 +8,7 @@ class Barang extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('barang_model');
+    $this->load->model('general_model');
     // if (!$this->session->barangdata('auth')) {
     //     $this->session->set_flashdata('messageAkses', 'Anda tidak berhak mengakses halaman barang');
     //     redirect('auth');
@@ -17,8 +17,11 @@ class Barang extends CI_Controller
 
   public function index()
   {
-    $data['barang'] = $this->barang_model->getBarang();
-    $this->load->view('barang_view', $data);
+    $table = 'tbl_barang';
+    $data['judul'] = 'Halaman Barang';
+    $data['barang'] = $this->general_model->getData($table);
+    $data['content'] = 'barang_view';
+    $this->load->view('set_view', $data);
   }
 
   function addBarang()
@@ -31,7 +34,7 @@ class Barang extends CI_Controller
     $id = $this->uri->segment(3);
     $where = array('id' => $id);
     $table = 'tbl_barang';
-    $data['barang'] = $this->barang_model->getBarangId($table, $where);
+    $data['barang'] = $this->general_model->getDataById($table, $where);
     $this->load->view('update_barang', $data);
   }
 
@@ -50,7 +53,7 @@ class Barang extends CI_Controller
       'merk' => $merk
     );
     $table = 'tbl_barang';
-    $this->barang_model->insertData($table, $data);
+    $this->general_model->insertData($table, $data);
     redirect('barang');
   }
 
@@ -75,7 +78,8 @@ class Barang extends CI_Controller
       'id' => $id
     );
 
-    $this->barang_model->update_data($where, $data);
+    $table = 'tbl_barang';
+    $this->general_model->update_data($table, $where, $data);
     redirect('barang');
   }
 }

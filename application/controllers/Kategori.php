@@ -9,13 +9,16 @@ class Kategori extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('kategori_model');
+        $this->load->model('general_model');
     }
 
     public function index()
     {
-        $data['kategori'] = $this->kategori_model->getKategori();
-        $this->load->view('kategori_view', $data);
+        $table = 'tbl_kategori';
+        $data['judul'] = 'Halaman Kategori';
+        $data['kategori'] = $this->general_model->getData($table);
+        $data['content'] = 'kategori_view';
+        $this->load->view('set_view', $data);
     }
 
     function addKategori()
@@ -23,10 +26,40 @@ class Kategori extends CI_Controller
         $this->load->view('add_kategori');
     }
 
+    function ubahKategori()
+    {
+        $id = $this->uri->segment(3);
+        $where = array('id' => $id);
+        $table = 'tbl_kategori';
+        $data['kategori'] = $this->general_model->getDataById($table, $where);
+        $this->load->view('update_kategori', $data);
+    }
+
     function create()
     {
         $kategori = $this->input->post('kategori');
-        $this->kategori_model->addKategori($kategori);
+        $data = [
+            'kategori' => $kategori
+        ];
+        $table = 'tbl_kategori';
+        $this->general_model->insertData($table, $data);
+        redirect('kategori');
+    }
+
+    function update()
+    {
+        $id = $this->input->post('id');
+        $kategori = $this->input->post('kategori');
+
+        $data = array(
+            'kategori' => $kategori
+        );
+
+        $where = array(
+            'id' => $id
+        );
+        $table = 'tbl_kategori';
+        $this->general_model->update_data($table, $where, $data);
         redirect('kategori');
     }
 }

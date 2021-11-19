@@ -1,8 +1,9 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class General_model extends CI_Model {
+class General_model extends CI_Model
+{
   function insertData($table, $data)
   {
     $this->db->insert($table, $data);
