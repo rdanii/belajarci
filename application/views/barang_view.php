@@ -31,7 +31,7 @@
                 <td><?php echo $row->jumlah_barang ?></td>
                 <td><?php echo $row->merk ?></td>
                 <td><a class="btn btn-warning" href="<?php echo base_url('barang/ubahBarang/' . $row->id); ?>">Ubah Barang</a>
-                  <a class="btn btn-danger" href="<?php echo base_url('barang/delete/' . $row->id); ?>">Hapus</a>
+                  <a class="btn btn-danger" href="<?php echo base_url('barang/delete/' . $row->id); ?>" onclick="return confirm('Apakah anda yakin akan hapus data?');">Hapus</a>
                 </td>
               </tr>
             <?php }
