@@ -28,17 +28,18 @@ class Auth extends CI_Controller {
     $where = 'email';
     $where_data = $email;
     $user = $this->general_model->getDataByIdSingleData($table, $where, $where_data);
-
+    
     if (empty($user)) {
       $this->session->set_flashdata('message', 'User tidak ditemukan');
       redirect('auth');
     } else {
-      if (password_hash($password, PASSWORD_DEFAULT) == $user->password) {
+      if (password_verify($password, $user->password)) {
         $session = array(
           'auth' => true,
           'nama' => $user->nama,
           'email' => $user->email
         );
+        
         $this->session->set_userdata($session);
         redirect('user');
       } else {
