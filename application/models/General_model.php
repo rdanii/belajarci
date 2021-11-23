@@ -27,6 +27,13 @@ class General_model extends CI_Model
     return $result;
   }
 
+  function getDataByIdSingleData($table, $where, $where_data)
+  {
+    $this->db->where($where, $where_data);
+    $result = $this->db->get($table)->row();
+    return $result;
+  }
+
   function delete($table_id, $where_id, $table)
   {
     $this->db->where($table_id, $where_id);
