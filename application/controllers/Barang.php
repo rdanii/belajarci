@@ -82,4 +82,13 @@ class Barang extends CI_Controller
     $this->general_model->update_data($table, $where, $data);
     redirect('barang');
   }
+
+  function delete()
+  {
+    $id_table = 'id';
+    $id_barang = $this->uri->segment(3);
+    $table = 'tbl_barang';
+    $this->general_model->delete($id_table, $id_barang, $table);
+    redirect('barang');
+  }
 }
