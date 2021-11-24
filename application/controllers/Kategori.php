@@ -62,6 +62,15 @@ class Kategori extends CI_Controller
         $this->general_model->update_data($table, $where, $data);
         redirect('kategori');
     }
+
+    function delete()
+    {
+        $id_table = 'id';
+        $id_kategori = $this->uri->segment(3);
+        $table = 'tbl_kategori';
+        $this->general_model->delete($id_table, $id_kategori, $table);
+        redirect('kategori');
+    }
 }
 
 /* End of file Kategori.php */

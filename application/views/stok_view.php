@@ -27,7 +27,10 @@
                 <td><?= $row->jumlah_barang ?></td>
                 <td><?= $row->merk ?></td>
                 <td><?= $row->jenis ?></td>
-                <td><a class="btn btn-warning" href="<?php echo base_url('stok/ubahStok/' . $row->id); ?>">Ubah Stok</a></td>
+                <td>
+                  <a class="btn btn-warning" href="<?php echo base_url('stok/ubahStok/' . $row->id); ?>">Ubah Stok</a>
+                  <a href="<?= base_url('stok/delete/') . $row->id ?>" class="btn btn-danger" onclick="return confirm('Anda yakin ingin hapus?')">Delete</a>
+                </td>
               </tr>
             <?php } ?>
           </tbody>

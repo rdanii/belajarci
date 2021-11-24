@@ -9,10 +9,19 @@
         </div>
         <div class="card-body">
           <p class="login-box-msg">Sign in to start your session</p>
+          <p>
+            <?php
+            if ($this->session->flashdata('message')) {
+              echo $this->session->flashdata('message');
+            } else {
+              echo $this->session->flashdata('message2');
+            }
+            ?>
+          </p>
 
           <form action="<?php echo base_url('auth/login') ?>" method="post">
             <div class="input-group mb-3">
-              <input type="email" name="email" class="form-control" placeholder="Email">
+              <input type="text" name="username" class="form-control" placeholder="Username">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>

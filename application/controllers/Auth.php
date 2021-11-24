@@ -1,8 +1,9 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Auth extends CI_Controller
+{
   public function __construct()
   {
     parent::__construct();
@@ -22,13 +23,13 @@ class Auth extends CI_Controller {
 
   function login()
   {
-    $email = $this->input->post('email');
+    $username = $this->input->post('username');
     $password = $this->input->post('password');
     $table = 'tbl_user';
-    $where = 'email';
-    $where_data = $email;
+    $where = 'username';
+    $where_data = $username;
     $user = $this->general_model->getDataByIdSingleData($table, $where, $where_data);
-    
+
     if (empty($user)) {
       $this->session->set_flashdata('message', 'User tidak ditemukan');
       redirect('auth');
@@ -37,13 +38,14 @@ class Auth extends CI_Controller {
         $session = array(
           'auth' => true,
           'nama' => $user->nama,
-          'email' => $user->email
+          'email' => $user->email,
+          'username' => $user->username
         );
-        
+
         $this->session->set_userdata($session);
         redirect('user');
       } else {
-        $this->session->set_flashdata('message', 'Password tidak cocok');
+        $this->session->set_flashdata('message2', 'Password tidak cocok');
         redirect('auth');
       }
     }

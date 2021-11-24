@@ -21,7 +21,9 @@
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $row->kategori ?></td>
-                <td><a class="btn btn-warning" href="<?= base_url('kategori/ubahKategori/' . $row->id) ?>">Ubah Kategori</a></td>
+                <td><a class="btn btn-warning" href="<?= base_url('kategori/ubahKategori/' . $row->id) ?>">Ubah Kategori</a>
+                  <a href="<?= base_url('kategori/delete/') . $row->id ?>" class="btn btn-danger" onclick="return confirm('Anda yakin ingin hapus?')">Delete</a>
+                </td>
               </tr>
             <?php }
             ?>

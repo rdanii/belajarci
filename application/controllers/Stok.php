@@ -77,4 +77,13 @@ class Stok extends CI_Controller
         $this->general_model->update_data($table, $where, $data);
         redirect('stok');
     }
+
+    function delete()
+    {
+        $id_table = 'id';
+        $id_stok = $this->uri->segment(3);
+        $table = 'tbl_stok';
+        $this->general_model->delete($id_table, $id_stok, $table);
+        redirect('stok');
+    }
 }
